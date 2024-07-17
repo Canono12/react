@@ -1,27 +1,50 @@
-import { useState } from "react";
-import reactLogo from "./assets/react.svg";
+// src/components/App.jsx
+import React from 'react';
+import Student from './components/student';
+
+const Students = () => {
+    const students = [
+        { name: "Christian", department: "Science", finalGrade: 85, status: "Pass" },
+        { name: "Cristino", department: "Arts", finalGrade: 78, status: "Pass" },
+        { name: "Lorena", department: "Commerce", finalGrade: 92, status: "Pass" },
+        { name: "Chalcy", department: "Filipino", finalGrade: 60, status: "Pass" },
+        { name: "Joanna", department: "English", finalGrade: 74, status: "Pass" },
+        { name: "canono", department: "Math", finalGrade: 81, status: "Pass" },
+        { name: "Kyle", department: "Pathfit", finalGrade: 88, status: "Pass" },
+        { name: "Vhaugn", department: "OOP", finalGrade: 69, status: "Pass" },
+        { name: "Lito", department: "GE9", finalGrade: null, status: "Fail" },
+        { name: "Lita", department: "CC101", finalGrade: null, status: "Fail" }
+    ];
+
+    return (
+        <div>
+            <h1>Student List</h1>
+            <table border="1">
+                <thead>
+                    <tr>
+                        <th>No.</th>
+                        <th>Student Names</th>
+                        <th>Department</th>
+                        <th>Final Grade</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {students.map((student, index) => (
+                        <Student key={index} student={student} index={index} />
+                    ))}
+                </tbody>
+            </table>
+        </div>
+    );
+};
 
 function App() {
-  const [count, setCount] = useState(0);
-
-  return (
-    <>
-      <div>
-        <h1>My First React App Installation</h1>
-        <h2>What is react?</h2>
-        <br />
-        <p>
-          React is a free and open-source front-end JavaScript library for
-          building user interfaces based on components by Facebook Inc. It is
-          maintained by Meta and a community of individual developers and
-          companies. React can be used to develop single-page, mobile, or
-          server-rendered applications with frameworks like Next.js.
-        </p>
-        <p>1.Christian O.Canono</p>
-        <p>2.Allen Chrisve Sanchez</p>
-      </div>
-    </>
-  );
+    return (
+        <div className="App">
+            <Students />
+        </div>
+    );
 }
 
 export default App;
